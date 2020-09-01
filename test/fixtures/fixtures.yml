@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fixture_id: 1
+  event_date: 2020-08-31 17:03:12
+  event_timestamp: 2020-08-31 17:03:12
+  statusShort: MyString
+  elapsed: 1
+  venue: MyString
+  referee: MyString
+  home_team_id: 1
+  away_team_id: 1
+  goalsHomeTeam: 1
+  goalsAwayTeam: 1
+
+two:
+  fixture_id: 1
+  event_date: 2020-08-31 17:03:12
+  event_timestamp: 2020-08-31 17:03:12
+  statusShort: MyString
+  elapsed: 1
+  venue: MyString
+  referee: MyString
+  home_team_id: 1
+  away_team_id: 1
+  goalsHomeTeam: 1
+  goalsAwayTeam: 1
