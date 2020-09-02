@@ -3,7 +3,7 @@ class FixturesController < ApplicationController
         if params[:team_id]
             fixtures = Fixture.find_fixtures_by_team(params[:team_id])
         else
-            fixtures = Fixture.all 
+            fixtures = Fixture.desc_order 
         end
         render json: fixtures.to_json({
             include: {
