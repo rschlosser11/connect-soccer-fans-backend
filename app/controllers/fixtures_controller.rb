@@ -5,11 +5,31 @@ class FixturesController < ApplicationController
         else
             fixtures = Fixture.all 
         end
-        render json: fixtures, except: [:created_at, :updated_at]
+        render json: fixtures.to_json({
+            include: {
+                home_team: {
+                    only: [:name]
+                },
+                away_team: {
+                    only: [:name]
+                }
+            },
+            except: [:create_at, :updated_at]
+        })
     end
 
     def show
         fixture = Fixture.find(params[:id])
-        render json: fixture, except: [:created_at, :updated_at]
+        render json: fixture.to_json({
+            include: {
+                home_team: {
+                    only: [:name]
+                },
+                away_team: {
+                    only: [:name]
+                }
+            },
+            except: [:create_at, :updated_at]
+        })
     end
 end
