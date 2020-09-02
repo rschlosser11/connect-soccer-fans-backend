@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController 
     def index
-        teams = Team.all 
+        teams = Team.alphabetical 
         render json: teams, except: [:created_at, :updated_at]
     end
 
