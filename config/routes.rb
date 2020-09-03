@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :fixtures, only: [:index, :show]
+
+  post '/users/signin', to: 'users#signin'
 end

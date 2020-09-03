@@ -8,10 +8,10 @@ class FixturesController < ApplicationController
         render json: fixtures.to_json({
             include: {
                 home_team: {
-                    only: [:name]
+                    only: [:name, :logo]
                 },
                 away_team: {
-                    only: [:name]
+                    only: [:name, :logo]
                 }
             },
             except: [:create_at, :updated_at]

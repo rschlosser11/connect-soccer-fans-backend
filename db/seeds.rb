@@ -46,7 +46,7 @@ fixtures = fixtures_body['api']['fixtures']
 
 fixtures.each do |fixture|
     fixture.transform_keys!(&:to_sym)
-    Fixture.find_or_create_by(fixture.slice(:event_date, :statusShort, :elapsed, :venue, :referee, :goalsHomeTeam, :goalsAwayTeam).merge(away_team: Team.find_by(team_id: fixture[:awayTeam]['team_id']), home_team: Team.find_by(team_id: fixture[:homeTeam]['team_id'])))
+    Fixture.find_or_create_by(fixture.slice(:fixture_id, :event_date, :statusShort, :elapsed, :venue, :referee, :goalsHomeTeam, :goalsAwayTeam).merge(away_team: Team.find_by(team_id: fixture[:awayTeam]['team_id']), home_team: Team.find_by(team_id: fixture[:homeTeam]['team_id'])))
 end
 
 User.create(username:'soccerfan1', email:'soccer@me.com', password:'test');
