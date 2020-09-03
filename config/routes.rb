@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :fixtures, only: [:index]
   end
 
-  resources :fixtures, only: [:index, :show]
+  resources :fixtures, only: [:index, :show] do
+    resources :comments, only: [:index]
+  end
 
   post '/users/signin', to: 'users#signin'
 
