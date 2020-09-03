@@ -41,7 +41,6 @@ fixtures_request["x-rapidapi-key"] = ENV['RAPID_API_KEY']
 
 fixtures_response = fixtures_http.request(fixtures_request)
 fixtures_body = JSON.parse(fixtures_response.body)
-byebug;
 fixtures = fixtures_body['api']['fixtures']
 
 fixtures.each do |fixture|
@@ -49,9 +48,23 @@ fixtures.each do |fixture|
     Fixture.find_or_create_by(fixture.slice(:fixture_id, :event_date, :statusShort, :elapsed, :venue, :referee, :goalsHomeTeam, :goalsAwayTeam).merge(away_team: Team.find_by(team_id: fixture[:awayTeam]['team_id']), home_team: Team.find_by(team_id: fixture[:homeTeam]['team_id'])))
 end
 
+fix = Fixture.find_or_create_by(fixture_id: 111111110, event_date: "2020-09-12 15:00:00", statusShort: "Up", elapsed: 0, venue: "Craven Cottage", referee: nil, home_team_id: 27, away_team_id: 39, goalsHomeTeam: 0, goalsAwayTeam: 0)
+Fixture.find_or_create_by(fixture_id: 111111111, event_date: "2020-09-12 15:00:00", statusShort: "Up", elapsed: 0, venue: "London Stadium", referee: nil, home_team_id: 36, away_team_id: 34, goalsHomeTeam: 0, goalsAwayTeam: 0)
+
 User.create(username:'soccerfan1', email:'soccer@me.com', password:'test');
 User.create(username:'tim23', email: 'tim@me.com', password:'test')
 User.create(username:'123sally', email: 'sally@me.com', password:'test')
 User.create(username:'noah43', email: 'noah@me.com', password:'test')
 User.create(username:'susan001', email: 'susan@me.com', password:'test')
 User.create(username:'1jon4443', email: 'jon@me.com', password:'test')
+
+Comment.find_or_create_by(text: 'great game!', user_id: 2, fixture: fix)
+Comment.find_or_create_by(text: 'GO ARSENAL!!!!!!', user_id: 1, fixture: fix)
+Comment.find_or_create_by(text: "Hopefully our defense is solid", user_id: 3, fixture: fix)
+Comment.find_or_create_by(text: 'Here we goooooo!', user_id: 5, fixture: fix)
+Comment.find_or_create_by(text: 'Come on you gunners!', user_id: 3, fixture: fix)
+Comment.find_or_create_by(text: 'Fulham forever! :D', user_id: 4, fixture: fix)
+Comment.find_or_create_by(text: "Hey, y'all!", user_id: 2, fixture: fix)
+Comment.find_or_create_by(text: 'Oh noooooooo, typical!', user_id: 4, fixture: fix)
+Comment.find_or_create_by(text: 'GOOOOOOAAAAAALLLLLL! AUBA!!!!!', user_id: 2, fixture: fix)
+
