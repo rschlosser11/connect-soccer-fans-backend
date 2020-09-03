@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         else
             new_user = User.new(user_params)
             if new_user.save
-                render json: user, except: [:created_at, :updated_at, :password]
+                render json: new_user, except: [:created_at, :updated_at, :password]
             end
         end
     end
