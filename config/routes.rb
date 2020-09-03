@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :fixtures, only: [:index, :show]
 
   post '/users/signin', to: 'users#signin'
+
+  resources :users, only: [:create]
 end
