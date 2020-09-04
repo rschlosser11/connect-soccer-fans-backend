@@ -3,6 +3,8 @@ class UsersController < ApplicationController
         user = User.find_by(email: user_params[:email])
         if user && user.authenticate(user_params[:password])
             render json: user, except: [:created_at, :updated_at, :password]
+        else
+            render json: {status: 'error', message: 'Incorrect email or password'}
         end 
     end
 
@@ -13,9 +15,10 @@ class UsersController < ApplicationController
         else
             new_user = User.new(user_params)
             if new_user.save
-                render json: new_user, except: [:created_at, :updated_at, :password]
+                render json: user, except: [:created_at, :updated_at, :password]
             end
         end
+
     end
 
     private
