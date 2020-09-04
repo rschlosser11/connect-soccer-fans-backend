@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :show] do 
     resources :fixtures, only: [:index]
+    resources :players, only: [:index]
   end
 
   resources :fixtures, only: [:index, :show] do
@@ -14,4 +15,6 @@ Rails.application.routes.draw do
   post '/users/signin', to: 'users#signin'
 
   resources :users, only: [:create]
+
+  resources :players, only: [:index]
 end
