@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:index]
   end
 
+  resources :comments, only: [:index, :create]
+
   post '/users/signin', to: 'users#signin'
 
   resources :users, only: [:create]
